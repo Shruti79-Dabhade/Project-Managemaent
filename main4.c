@@ -17,23 +17,23 @@ struct  Project{
 };
 
 
-struct Project Projects[SIZE];
+struct Project projects[SIZE];
 
 void acceptAll(){
 for(int i=0;i<SIZE-1;i++){
 printf("Enter details of project %d \n",i+1);
    printf("Enter ProjectID\n");
-   scanf("%d",&Projects[i].projectID);
+   scanf("%d",&projects[i].projectID);
    printf("Enter Project Name:");
-   scanf("%s",Projects[i].projectName);
+   scanf("%s",&projects[i].projectName);
    printf("Enter description:");
-   scanf("%s",Projects[i].descpription);
+   scanf("%s",&projects[i].descpription);
    printf("Enter start Date:");
-   scanf("%s",Projects[i].startDate);
+   scanf("%s",&projects[i].startDate);
    printf("Enter End Date:");
-   scanf("%s",Projects[i].endDate);
+   scanf("%s",&projects[i].endDate);
    printf("Enter Project Status:");
-   scanf("%s",Projects[i].projectStatus);
+   scanf("%s",&projects[i].projectStatus);
 }
 
 
@@ -41,12 +41,12 @@ printf("Enter details of project %d \n",i+1);
 void showAll(){
     printf("All details of project \n");
     for(int i=0;i<SIZE-1;i++){
-   printf("projectID:%d\n",Projects[i].projectID);
-   printf("projectname:%s\n",Projects[i].projectName);
-   printf("description:%s\n",Projects[i].descpription);
-   printf("startdate:%s\n",Projects[i].startDate);
-   printf("enddate:%s\n",Projects[i].endDate);
-   printf("projectstatus:%s\n",Projects[i].projectStatus);
+   printf("projectID:%d\n",projects[i].projectID);
+   printf("projectname:%s\n",projects[i].projectName);
+   printf("description:%s\n",projects[i].descpription);
+   printf("startdate:%s\n",projects[i].startDate);
+   printf("enddate:%s\n",projects[i].endDate);
+   printf("projectstatus:%s\n",projects[i].projectStatus);
     }
 
 
@@ -54,50 +54,41 @@ void showAll(){
 }
 void show(int index){
     printf("details of project \n");
-    printf("projectID:%d\n",Projects[index].projectID);
-   printf("projectname:%s\n",Projects[index].projectName);
-   printf("description:%s\n",Projects[index].descpription);
-   printf("startdate:%s\n",Projects[index].startDate);
-   printf("enddate:%s\n",Projects[index].endDate);
-   printf("projectstatus:%s\n",Projects[index].projectStatus);
+    printf("projectID:%d\n",projects[index].projectID);
+   printf("projectname:%s\n",projects[index].projectName);
+   printf("description:%s\n",projects[index].descpription);
+   printf("startdate:%s\n",projects[index].startDate);
+   printf("enddate:%s\n",projects[index].endDate);
+   printf("projectstatus:%s\n",projects[index].projectStatus);
 
 
 }
 void update(int index){
     printf("Update existing %d th Project Details\n",index+1);
     printf("Enter ProjectID:\n");
-   scanf("%d",&Projects[index].projectID);
+   scanf("%d",&projects[index].projectID);
    printf("Enter Project Name:");
-   scanf("%s",Projects[index].projectName);
+   scanf("%s",&projects[index].projectName);
    printf("Enter description:");
-   scanf("%s",Projects[index].descpription);
+   scanf("%s",&projects[index].descpription);
    printf("Enter start Date:");
-   scanf("%s",Projects[index].startDate);
+   scanf("%s",&projects[index].startDate);
    printf("Enter End Date:");
-   scanf("%s",Projects[index].endDate);
+   scanf("%s",&projects[index].endDate);
    printf("Enter Project Status:");
-   scanf("%s",Projects[index].projectStatus);
+   scanf("%s",&projects[index].projectStatus);
 
 }
 int main(){
 
-    acceptAll();
-    showAll();
- 
-    int index;
-    printf("Enter index to show Details:");
-    scanf("%d",&index);
- 
-    show(index);
-    update(index);
-    showAll();
-    return 0;
-
     int choice;
+    acceptAll(); 
+            
+    //infinite loop
+    
     while (1){
         printf("\nProject Management System\n");
         printf("===========================\n");
-        printf("1. Add New Project\n");
         printf("2. View all Projects\n");
         printf("3. Update Projects\n");
         printf("4. Delete Projects\n");
@@ -106,12 +97,23 @@ int main(){
         scanf("%d",&choice);
 
         switch (choice) {
-            case 1: acceptAll(); break;
-            case 2: showAll(); break;
-            case 3: update(2); break;
+             
+               
+            case 2: 
+                showAll(); 
+            break;
+            case 3: 
+                update(2); 
+            break;
             //case 4: delete(1); break;/
-            case 5: return 0;
-            default: printf("Invalid choice. Try again.\n");
+            case 5:
+                return 0;
+            default: 
+            printf("Invalid choice. Try again.\n");
+            
         }
-    }
+    } 
+    return 0;
+
+    
 }
